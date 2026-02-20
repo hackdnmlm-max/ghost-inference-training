@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  ghost-inference:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: ghost-inference
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+    restart: unless-stopped
